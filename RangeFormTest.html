@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+
+    <script type="text/javascript">
+        window.addEventListener("newLensSelected", onNewLens);
+        function onNewLens(e)
+        {
+            console.log("newLensSelected " + e.detail);
+        }
+    </script>
+
+
+        <script src="javascript/LensRange.js"></script>
+        <script src="javascript/LensRangeTools.js"></script>
+        <script src="javascript/LensRangeFloatInfo.js"></script>
+
+
+    <script>
+        var options = {};
+        var json = '{"id":1,"name":"1.50 SF BF DD-100Clear UC","diameter":80.0,"lens":[[null,{"OPC":"04","Cyl":0.0,"Sph":0.25,"Base":0.0,"Add":0.0,"Eye":0,"Price":0.0},{"OPC":"07","Cyl":0.0,"Sph":0.5,"Base":0.0,"Add":0.0,"Eye":0,"Price":0.0},{"OPC":"10","Cyl":0.0,"Sph":0.75,"Base":0.0,"Add":0.0,"Eye":0,"Price":0.0},{"OPC":"14","Cyl":0.0,"Sph":1.0,"Base":0.0,"Add":0.0,"Eye":0,"Price":0.0}],[{"OPC":"02","Cyl":0.25,"Sph":0.0,"Base":0.0,"Add":0.0,"Eye":0,"Price":0.0},{"OPC":"05","Cyl":0.25,"Sph":0.25,"Base":0.0,"Add":0.0,"Eye":0,"Price":0.0},{"OPC":"08","Cyl":0.25,"Sph":0.5,"Base":0.0,"Add":0.0,"Eye":0,"Price":0.0},{"OPC":"11","Cyl":0.25,"Sph":0.75,"Base":0.0,"Add":0.0,"Eye":0,"Price":0.0},{"OPC":"15","Cyl":0.25,"Sph":1.0,"Base":0.0,"Add":0.0,"Eye":0,"Price":0.0}],[{"OPC":"03","Cyl":0.5,"Sph":0.0,"Base":0.0,"Add":0.0,"Eye":0,"Price":0.0},{"OPC":"06","Cyl":0.5,"Sph":0.25,"Base":0.0,"Add":0.0,"Eye":0,"Price":0.0},{"OPC":"09","Cyl":0.5,"Sph":0.5,"Base":0.0,"Add":0.0,"Eye":0,"Price":0.0},{"OPC":"12","Cyl":0.5,"Sph":0.75,"Base":0.0,"Add":0.0,"Eye":0,"Price":0.0},null]]}';
+        window.onload = RangeTable("tableContainer", json, options);
+    </script>
+    
+
+    <style>
+        body
+        {
+            font-family:'Open Sans',Arial, Helvetica, sans-serif;
+        }
+
+        .tableContainer{
+            background-color:#259ec6;
+            z-index:99;
+            position:relative;
+        }
+
+
+        .floatInfo{
+            width:50px;
+            height:50px;
+            background-color:#b6ff00;
+            position:absolute;
+            left:0px;
+            top:0px;
+            z-index:100;
+            visibility:hidden;
+        }
+
+        .vertical {
+            -ms-transform: rotate(-90deg); /* IE 9 */
+            -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+            transform: rotate(-90deg);
+            width: 30px;
+        }
+
+        .horizontal {
+            text-align: center;
+            height: 30px;
+        }
+
+        .rangeTable {
+            border-width: 1px;
+            border-color: chartreuse;
+            border-style: solid;
+        }
+
+        #genericCell {
+            border-width: 1px;
+            border-color: blueviolet;
+            border-style: solid;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="tableContainer" class="tableContainer"></div>
+
+</body>
+</html>
+
